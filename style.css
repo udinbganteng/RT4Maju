@@ -1,0 +1,397 @@
+:root {
+    --primary: #000000;
+    --secondary: #666666;
+    --accent: #007AFF;
+    --bg: #ffffff;
+    --card-bg: #f5f5f7;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.5;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 2px;
+    background: var(--primary);
+    transition: 0.3s;
+}
+
+/* Hamburger Animation */
+.open .bar1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.open .bar2 {
+    opacity: 0;
+}
+
+.open .bar3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+.nav-links {
+    /* position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05); */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+
+    /* Efek Glassmorphism tetap dipertahankan */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    /* PERUBAHAN DI SINI: Teks tidak lagi di tengah-tengah layar */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Mulai dari atas */
+    align-items: flex-start;
+    /* Rata kiri */
+
+    /* Beri jarak aman dari atas (100px) dan kiri (40px) */
+    padding: 100px 40px;
+    gap: 20px;
+
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Saat menu aktif */
+.navbar-menu.active {
+    right: 0;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: var(--text-color, #333);
+    font-size: 1.3rem;
+    /* Sedikit lebih besar agar mudah ditekan jari */
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+    width: 100%;
+    /* Agar area sentuh meluas ke samping */
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Garis pemisah halus */
+}
+
+/* Efek garis bawah (sekarang mulai dari kiri karena teks rata kiri) */
+.navbar-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    /* Mulai dari kiri */
+    background: var(--primary-color, #27ae60);
+    transition: 0.3s;
+}
+
+.navbar-menu a:hover::after {
+    width: 50px;
+    /* Garis dekorasi pendek yang manis */
+}
+
+.navbar-menu a:hover {
+    color: var(--primary-color, #27ae60);
+    padding-left: 10px;
+    /* Efek geser ke kanan saat di-hover */
+}
+
+
+.nav-links.show {
+    right: 0;
+}
+
+.nav-links button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* --- HEADER --- */
+header {
+    padding: 120px 25px 60px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+/* --- SECTIONS --- */
+.section {
+    display: none;
+    padding: 0 25px 100px;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.6s ease;
+}
+
+.active {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- CARDS & GRID --- */
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 24px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.ketua-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.ketua-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.grid-item {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* --- INPUTS --- */
+textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    width: 100%;
+    font-size: 1rem;
+}
+
+footer {
+    padding: 40px 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    border-top: 1px solid #eee;
+}
+
+
+.foto-kegiatan {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+
+    border-radius: 8px;
+    border: 4px solid #ffffff;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.foto-kegiatan:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
+}
+
+.foto-navbar {
+    width: 40px;
+    height: 40px;
+
+    /* border-radius: 10%; */
+
+    object-fit: cover;
+
+    margin-right: 12px;
+
+    /* border: 2px solid #e0e0e0; */
+
+    vertical-align: middle;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.galeri-kegiatan {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-top: 10px;
+}
+
+.galeri-kegiatan::-webkit-scrollbar {
+    height: 8px;
+}
+
+.galeri-kegiatan::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.modal-foto {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.modal-foto img {
+    max-width: 100%;
+    max-height: 90vh;
+
+    border-radius: 15px;
+
+    animation: zoomFoto 0.25s ease;
+}
+
+@keyframes zoomFoto {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

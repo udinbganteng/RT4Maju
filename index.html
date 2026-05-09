@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website resmi lingkungan RT 04 Perumahan Griya Cibinong Indah 1">
+    <meta name="keywords" content="RT4, Bersatu Maju, RT 04, Bogor, Website RT">
+    <meta property="og:title" content="RT4 - Bersatu & Maju">
+    <meta property="og:description" content="Membangun lingkungan RT 04 yang lebih baik.">
+    <meta property="og:image" content="gambar/LogoRT.png"> <!-- Arahkan ke file LogoRT.png kamu -->
+    <meta property="og:url" content="https://rt4bersatumaju.vercel.app/">
+
+    <link rel="icon" type="image/png" href="gambar/LogoRT.png">
+    <link rel="apple-touch-icon" href="gambar/LogoRT.png">
+    <title>RT4 Bersatu & Maju</title>
+    lin
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <img class="foto-navbar" src="gambar/LogoRT.png" alt="">
+            RT 04
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <button onclick="changeTab('home')">Home</button>
+            <button onclick="changeTab('ketua')">Ketua RT</button>
+            <button onclick="changeTab('anggota')">Pemain Inti</button>
+            <button onclick="changeTab('kegiatan')">Kegiatan</button>
+            <button onclick="changeTab('prestasi')">Prestasi</button>
+            <!-- <button onclick="changeTab('publikasi')">Publikasi</button> -->
+        </div>
+    </nav>
+
+    <header>
+        <h1 id="mainTitle">Bersatu & Maju.</h1>
+        <p>Membangun harmoni dalam keberagaman lingkungan RT 04.</p>
+    </header>
+
+    <main>
+        <!-- Home -->
+        <div id="home" class="section active">
+            <div class="card">
+                <h2>Tentang Kami</h2>
+                <p>RT 04 bukan sekadar wilayah administratif, melainkan sebuah keluarga besar. Kami fokus pada
+                    digitalisasi lingkungan dan kenyamanan bersama.</p>
+            </div>
+        </div>
+
+        <!-- Ketua -->
+        <div id="ketua" class="section">
+            <div class="card ketua-profile">
+                <img src="https://via.placeholder.com/150" alt="Ketua RT">
+                <div>
+                    <h2>Pak Ketua</h2>
+                    <p>"Dedikasi kami adalah kenyamanan Anda. Mari gotong royong demi lingkungan yang lebih asri."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anggota -->
+        <div id="anggota" class="section">
+            <div class="grid">
+                <div class="grid-item">Pak Udin</div>
+                <div class="grid-item">Pak Budi</div>
+                <div class="grid-item">Pak Joko</div>
+                <div class="grid-item">Pak Agus</div>
+            </div>
+        </div>
+
+        <!-- Kegiatan -->
+        <div id="kegiatan" class="section">
+            <!-- <div class="card">
+                <h2>Agenda Rutin</h2>
+                <ul style="padding-left: 20px;">
+                    <li>Siskamling Digital</li>
+                    <li>Kerja Bakti Bulanan</li>
+                    <li>Senam Sehat Minggu Pagi</li>
+                </ul>
+            </div> -->
+        </div>
+
+        <!-- Prestasi -->
+        <div id="prestasi" class="section">
+            <div class="card" style="background: #eefbff;">
+                <h2 style="color: #007AFF;">🏆 Juara Umum</h2>
+                <p>Peringkat 1 Lomba Kebersihan Tingkat RW tahun 2025.</p>
+            </div>
+        </div>
+
+        <!-- Publikasi -->
+        <!-- <div id="publikasi" class="section">
+            <div class="card">
+                <h2>Update Kegiatan</h2>
+                <textarea id="postText" placeholder="Ada kabar apa hari ini?"></textarea>
+                <button class="btn" onclick="addPost()">Kirim Publikasi</button>
+                <div id="posts" style="margin-top: 20px;"></div>
+            </div>
+        </div> -->
+    </main>
+
+    <footer>
+        <p>© 2026 RT 4 Lingkungan Maju</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <div id="modalFoto" class="modal-foto" onclick="tutupFoto()">
+        <img id="fotoBesar">
+    </div>
+</body>
+
+</html>
