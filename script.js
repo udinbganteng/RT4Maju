@@ -16,7 +16,7 @@ function changeTab(id) {
         home: "Bersatu & Maju.",
         ketua: "Profil Pemimpin.",
         anggota: "Pemain Inti.",
-        kegiatan: "Agenda Kita.",
+        kegiatan: "kegiatan Kita.",
         prestasi: "Kebanggaan.",
         publikasi: "Kabar Warga."
     };
