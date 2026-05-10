@@ -18,6 +18,7 @@ function changeTab(id) {
         anggota: "Pemain Inti.",
         kegiatan: "kegiatan Kita.",
         prestasi: "Kebanggaan.",
+        pengumuman: "Info Penting!!",
         publikasi: "Kabar Warga."
     };
     document.getElementById('mainTitle').innerText = titles[id];
