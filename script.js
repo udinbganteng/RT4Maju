@@ -62,7 +62,6 @@ function tambahKegiatan(judul, gambarList) {
 
     container.appendChild(div);
 }// contoh
-tambahKegiatan("Kerja Bakti", "gambar/test.png");
 tambahKegiatan("Touring", [
     "gambar/kegiatan2.jpeg",
     "gambar/kegiatan2_1.jpeg",
